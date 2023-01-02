@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Empleados por Departamento
+{% endblock titulo %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+<!--     <h1>Empleados por Departamento</h1> -->
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell">Empleados por area:</div>
+            <div class="cell">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="50">ID</th>
+                            <th width="150">NOMBRES</th>
+                            <th width="100">APELLIDOS</th>
+                            <th width="100">DEPARTAMENTO</th>
+                            <th width="100">ACCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for e in empleados %}
+                        <tr>
+                            <td>{{ e.id }}</td>
+                            <td>{{ e.first_name }}</td>
+                            <td>{{ e.last_name }}</td>
+                            <td>{{ e.departamento }}</td>
+                            <td>
+                                <a class="button alert" href="#">Eliminar </a>
+                                <a class="button success" href="#">Editar </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% for e in object_list %}
+    <li>{{ e }}</li>
+    {% endfor %}
+
+{% endblock content %}
+    

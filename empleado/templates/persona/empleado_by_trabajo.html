@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados por trabajo</title>
+</head>
+<body>
+<h3>Empleados por trabajo</h3>
+<h2>Escriba el numero para filtrar según trabajo:</h2>
+<ul>
+    <li>0 => Contador</li>
+    <li>1 => Administrador</li>
+    <li>2 => Economista</li>
+    <li>3 => Otro</li>
+    <li>4 => Ingeniero</li>
+    <li>5 => Abogado</li>
+    <li>6 => Técnico</li>
+</ul>
+
+<form method="GET">{% csrf_token %}
+    <input type="text" id="kwork" name="kwork" placeholder="Escribe numero de 0 a 6">
+    <button type="submit">Buscar</button>
+</form>
+<ul>
+    {% for e in trabajo %}
+    <li>{{ e }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
